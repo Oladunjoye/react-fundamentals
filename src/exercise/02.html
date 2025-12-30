@@ -1,6 +1,8 @@
 <!-- Intro to raw React APIs -->
 <!-- http://localhost:3000/isolated/exercise/02.html -->
 
+  <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
 <body>
   <div id="root"></div>
 
@@ -16,14 +18,33 @@
     // You're going to re-implement this code using React!
     // 💣 So go ahead and delete this implementation (or comment it out for now)
     // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.createRoot().render()
-    rootElement.append(element)
+    // const element = document.createElement('div')
+    // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
+    // element.className = 'container' // 💰 in React, this is also called the "className" prop
+    // // This is similar to ReactDOM.createRoot().render()
+    // rootElement.append(element)
+
+ 
+
+    const span1 = React.createElement('span', {children: 'Hello'})
+    const span2 = React.createElement('span', {children: 'World'})
+
+    const elementProps = {id:'root', children: [span1, ' ', span2]}
+    const elementType = 'div'
+    const reactElement = React.createElement(elementType, elementProps)
+
+
+    const root = ReactDOM.createRoot(rootElement)
+    root.render(reactElement,)
+
 
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
   </script>
 </body>
+
+<!-- // react helps us to create elements and the react dom helps us to render those elements
+// witht he react dom we can create Root(passs in root element i.e div) 
+// then witht he root we create, we can render the react element we create with the react pkg i.e root.render(reactElement)
+// to create the react element we need to habve the element type and the eleement props, note content are under the children props -->
